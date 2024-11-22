@@ -46,7 +46,7 @@ function MyTrips() {
                 {/* If loading, show skeletons, otherwise show the trips */}
                 {loading ? (
                     [1, 2, 3, 4, 5, 6].map((item, index) => (
-                        <div key={index} className='h-[400px] w-full bg-slate-300 animate-pulse rounded-xl'></div>
+                        <div key={index} className='h-[300px] w-full bg-slate-300 animate-pulse rounded-xl'></div>
                     ))
                 ) : userTrips.length > 0 ? (
                     userTrips.map((trip, index) => (

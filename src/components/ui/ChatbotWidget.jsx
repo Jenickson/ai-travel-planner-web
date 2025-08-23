@@ -84,7 +84,7 @@ export default function ChatbotWidget() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 border rounded px-2"
+              className="flex-1 border border-black rounded px-2 bg-white text-black"
               placeholder="Type a message..."
             />
             <button

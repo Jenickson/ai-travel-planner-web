@@ -20,11 +20,14 @@ function Header() {
   const user=JSON.parse (localStorage.getItem('user'));
   const [openDailog, setOpenDailog] = useState(false);
 
+<<<<<<< HEAD
   
   const openChatPage = () => {
     window.open("http://127.0.0.1:8000/", "_blank");
   };
 
+=======
+>>>>>>> 05c253e0d9522c952f843cd8e02cb89875b959e0
   useEffect(()=>{
     console.log(user)
   },[])
@@ -55,6 +58,7 @@ function Header() {
 
   return (
     <div className='p-3 mx-5 shadow-sm flex justify-between items-center px-5'>
+<<<<<<< HEAD
       <a href='/'>
       <img src='/logo.svg'/>
       </a>
@@ -70,6 +74,17 @@ function Header() {
           </a>
           <a href='/my-partners'>
           <Button variant="outline" className="rounded-full">Bookings✈️</Button>
+=======
+      <img src='/logo.svg'/>
+      <div>
+        {user?
+        <div className='flex items-center gap-3'>
+          <a href='/create-trip'>
+          <Button variant="outline" className="rounded-full">+ Create Trip</Button>
+          </a>
+          <a href='/my-trips'>
+          <Button variant="outline" className="rounded-full">My Trips</Button>
+>>>>>>> 05c253e0d9522c952f843cd8e02cb89875b959e0
           </a>
           <Popover>
             <PopoverTrigger>

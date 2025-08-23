@@ -2,7 +2,10 @@ import { GetPlaceDetails, PHOTO_REF_URL } from '@/service/GlobalApi';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 05c253e0d9522c952f843cd8e02cb89875b959e0
 function UserTripCardItem({trip}) {
     const [PhotoUrl,setPhotoUrl]=useState();
     useEffect(()=>{

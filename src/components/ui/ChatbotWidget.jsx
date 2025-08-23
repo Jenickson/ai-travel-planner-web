@@ -1,6 +1,6 @@
 // src/components/ui/ChatbotWidget.jsx
 import { useState } from "react";
-import { sendMessage } from "../../service/api.jsx";
+import { sendMessage } from "/src/service/Api";
 
 export default function ChatbotWidget() {
   const [messages, setMessages] = useState([

@@ -12,6 +12,7 @@ import MyTrips from './my-trips'
 import Mypartners from "./mypartners/index.jsx"
 
 
+
 const router=createBrowserRouter([
   {
     path:'/',

@@ -41,10 +41,10 @@ export default function ChatbotWidget() {
           onClick={() => setIsOpen(true)}
           className="bg-purple-600 text-white font-bold px-4 py-2 rounded-full shadow-lg"
         >
-          Open Chat
+          Quick Chat
         </button>
       ) : (
-        <div className="bg-white border rounded-lg shadow-lg flex flex-col w-80">
+        <div className="bg-white border rounded-lg shadow-lg flex flex-col w-100 h-100">
           {/* Header */}
           <div className="p-2 bg-purple-600 text-white font-bold rounded-t-lg flex justify-between items-center">
             Chatbot

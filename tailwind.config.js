@@ -9,6 +9,14 @@ module.exports = {
 	],
   theme: {
   	extend: {
+		width: {
+        '100': '28rem',   // 448px
+        '120': '30rem',   // 480px
+      },
+      height: {
+        '100': '28rem',
+        '120': '30rem',
+      },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

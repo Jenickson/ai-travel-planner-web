@@ -22,7 +22,7 @@ function Header() {
 
   
   const openChatPage = () => {
-    window.open("https://ai-travel-planner-chatbot.onrender.com/", "_blank");
+    window.open("https://ai-travel-planner-chatbot.onrender.com/chat", "_blank");
   };
 
   useEffect(()=>{

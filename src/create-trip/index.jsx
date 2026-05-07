@@ -92,17 +92,33 @@ function CreateTrip() {
     }
 
     console.log("__", result?.response?.text());
+    
+    // Clean potential markdown formatting
+    let responseText = result?.response?.text() || "";
+    responseText = responseText.replace(/```json/g, "").replace(/```/g, "").trim();
+    
     setLoading(false);
-    SaveAiTrip(result?.response?.text());
+    SaveAiTrip(responseText);
   };
 
   const SaveAiTrip = async (TripData) => {
     setLoading(true);
     const user = JSON.parse(localStorage.getItem("user"));
     const docId = Date.now().toString();
+    
+    let parsedTripData;
+    try {
+      parsedTripData = JSON.parse(TripData);
+    } catch (error) {
+      console.error("JSON Parse Error:", error, "Raw Data:", TripData);
+      setLoading(false);
+      toast("AI generated an incomplete trip. Please try generating again.");
+      return;
+    }
+
     await setDoc(doc(db, "AITrips", docId), {
       userSelection: formData,
-      tripData: JSON.parse(TripData),
+      tripData: parsedTripData,
       userEmail: user?.email,
       id: docId,
     });

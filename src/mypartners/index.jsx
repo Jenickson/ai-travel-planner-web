@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import PartnerCardItem from './components/partners';
+import Footer from '@/view-trip/components/Footer';
 
 // Move partner list here
 const partners = [
@@ -59,6 +60,7 @@ function MyPartners() {
               <PartnerCardItem key={index} partner={partner} />
             ))}
       </div>
+      <Footer/>
     </div>
   );
 }

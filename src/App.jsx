@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
+
 import './App.css'
-import { Button } from './components/ui/button'
 import Hero from './components/ui/custom/Hero'
 import ChatbotWidget from './components/ui/ChatbotWidget'
+import Footer from './view-trip/components/Footer'
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -17,7 +15,7 @@ function App() {
     {/* <div className="text-red-500">Test</div> */}
     {/* Floating Chatbot */}
       <ChatbotWidget />
-
+    <Footer/>
     </>
   )
 }

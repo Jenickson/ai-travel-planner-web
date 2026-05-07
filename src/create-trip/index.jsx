@@ -55,11 +55,17 @@ function CreateTrip() {
     }
 
     if (
-      (formData?.noOfDays > 5 && !formData?.location) ||
+      !formData?.location ||
+      !formData?.noOfDays ||
       !formData?.budget ||
       !formData?.traveler
     ) {
       toast("Please fill all the details.");
+      return;
+    }
+
+    if (formData?.noOfDays > 5) {
+      toast("Please enter Trip Days less than or equal to 5");
       return;
     }
 
@@ -69,7 +75,21 @@ function CreateTrip() {
       .replace("{traveler}", formData?.traveler)
       .replace("{budget}", formData?.budget)
       .replace("{totalDays}", formData?.noOfDays);
-    const result = await chatSession.sendMessage(FINAL_PROMPT);
+    let result;
+    for (let i = 0; i < 3; i++) {
+      try {
+        result = await chatSession.sendMessage(FINAL_PROMPT);
+        break;
+      } catch (error) {
+        console.error("Gemini API Error on attempt " + (i+1), error);
+        if (i === 2) {
+          setLoading(false);
+          toast("Server is experiencing high demand. Please try again in a moment.");
+          return;
+        }
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      }
+    }
 
     console.log("__", result?.response?.text());
     setLoading(false);

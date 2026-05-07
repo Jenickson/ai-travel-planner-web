@@ -39,7 +39,7 @@ export default function ChatbotWidget() {
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-purple-600 text-white font-bold px-4 py-2 rounded-full shadow-lg"
+          className="bg-purple-600 text-white font-bold px-4 py-2 rounded-full shadow-lg "
         >
           Quick Chat
         </button>

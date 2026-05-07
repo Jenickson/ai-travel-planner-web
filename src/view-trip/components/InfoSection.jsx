@@ -12,15 +12,18 @@ function InfoSection({trip}) {
   },[trip])
 
   const GetPlacePhoto=async()=>{
+    if (!trip?.userSelection?.location?.label) return;
     const data={
       textQuery:trip?.userSelection?.location?.label
     }
-    const result=await GetPlaceDetails(data).then(resp=>{
-      console.log(resp.data.places[0].photos[3].name)
-
-      const PhotoUrl=PHOTO_REF_URL.replace('{NAME}',resp.data.places[0].photos[3].name);
-      setPhotoUrl(PhotoUrl);
-    })
+    await GetPlaceDetails(data).then(resp=>{
+      const photos = resp?.data?.places?.[0]?.photos;
+      const photoName = photos?.[3]?.name || photos?.[0]?.name;
+      if (photoName) {
+        const PhotoUrl=PHOTO_REF_URL.replace('{NAME}',photoName);
+        setPhotoUrl(PhotoUrl);
+      }
+    }).catch(e => console.error("InfoSection Place API Error", e));
   }
   return (
     <div>
